@@ -39,11 +39,7 @@ func (m *Mutex) TryLock() bool {
 	return atomic.CompareAndSwapInt32((*int32)(unsafe.Pointer(&m.Mutex)), old, new)
 }
 
-func main() {
-	try()
-}
-
-func try() {
+func Try() {
 	var mu Mutex
 	go func() {
 		mu.Lock()

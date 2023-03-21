@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func main() {
+func ConcurrentAdd() {
 	var count = 0
 
 	var mu sync.Mutex
