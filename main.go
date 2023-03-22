@@ -1,7 +1,8 @@
 package main
 
 func main() {
-	ConcurrentAdd()
-	Try()
-	GetState()
+	//ConcurrentAdd()
+	//Try()
+	//GetState()
+	waitGroupCounter()
 }
