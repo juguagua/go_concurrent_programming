@@ -1,11 +1,13 @@
 package main
 
-import "go_concurrent_programming/example"
+import "go_concurrent_programming/example/sync_pool"
 
 func main() {
 	//ConcurrentAdd()
 	//Try()
 	//GetState()
 	//waitGroupCounter()
-	example.ReadyRun()
+	//cond.ReadyRun()
+	//sync_pool.ExecWithPool()
+	sync_pool.ExecWithoutPool()
 }

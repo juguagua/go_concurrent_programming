@@ -1,32 +1,34 @@
-package example
+package mutex
 
 import (
 	"fmt"
 	"sync/atomic"
 	"time"
 	"unsafe"
+
+	"go_concurrent_programming/example"
 )
 
-func (m *Mutex) WaiterCount() int {
+func (m *example.Mutex) WaiterCount() int {
 	v := atomic.LoadInt32((*int32)(unsafe.Pointer(&m.Mutex)))
-	v = v >> mutexWaiterShift // get number of goroutine waiting for lock
-	v = v + (v & mutexLocked) // add the holder of lock (0 or 1)
+	v = v >> example.mutexWaiterShift // get number of goroutine waiting for lock
+	v = v + (v & example.mutexLocked) // add the holder of lock (0 or 1)
 	return int(v)
 }
 
-func (m *Mutex) IsLocked() bool {
+func (m *example.Mutex) IsLocked() bool {
 	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&m.Mutex)))
-	return state&mutexLocked == mutexLocked
+	return state&example.mutexLocked == example.mutexLocked
 }
 
-func (m *Mutex) IsWoken() bool {
+func (m *example.Mutex) IsWoken() bool {
 	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&m.Mutex)))
-	return state&mutexWoken == mutexWoken
+	return state&example.mutexWoken == example.mutexWoken
 }
 
-func (m *Mutex) IsStarving() bool {
+func (m *example.Mutex) IsStarving() bool {
 	state := atomic.LoadInt32((*int32)(unsafe.Pointer(&m.Mutex)))
-	return state&mutexStarving == mutexStarving
+	return state&example.mutexStarving == example.mutexStarving
 }
 
 func GetState() {

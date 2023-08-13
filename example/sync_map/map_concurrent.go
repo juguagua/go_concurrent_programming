@@ -1,4 +1,4 @@
-package example
+package sync_map
 
 import (
 	"hash/crc32"

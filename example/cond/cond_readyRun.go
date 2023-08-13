@@ -1,4 +1,4 @@
-package example
+package cond
 
 import (
 	"log"

@@ -1,4 +1,4 @@
-package example
+package sync_pool
 
 import (
 	"encoding/json"
