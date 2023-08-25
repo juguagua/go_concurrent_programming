@@ -1,6 +1,6 @@
 package main
 
-import "go_concurrent_programming/example/sync_atomic"
+import "go_concurrent_programming/example/sync_channel"
 
 func main() {
 	//ConcurrentAdd()
@@ -20,5 +20,7 @@ func main() {
 	//
 	//println(x)
 
-	sync_atomic.ChangeConfig()
+	//sync_atomic.ChangeConfig()
+	//sync_channel.FourChanSchedule()
+	sync_channel.ChanSchedule()
 }

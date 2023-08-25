@@ -1,4 +1,4 @@
-package example
+package sync_pool
 
 import (
 	"math/rand"
@@ -7,11 +7,10 @@ import (
 )
 
 var (
-	seed = time.Now().UnixNano()
+	seed   = time.Now().UnixNano()
 	random = rand.New(rand.NewSource(seed))
-	n = 1000000
+	n      = 1000000
 )
-
 
 func generateWithCap(n int) []int {
 	nums := make([]int, 0, n)
